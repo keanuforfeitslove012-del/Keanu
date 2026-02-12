@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You 🦋❤️</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        overflow: hidden;
+        background: linear-gradient(to bottom right, #ffd6e7, #f4e1ff, #fff6e5);
+        color: #333;
+    }
+
+    .slide {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        opacity: 0;
+        transition: opacity 1s ease;
+        padding: 20px;
+    }
+
+    .active {
+        opacity: 1;
+        z-index: 1;
+    }
+
+    h1 {
+        font-size: 2.5em;
+        margin-bottom: 15px;
+        font-family: cursive;
+    }
+
+    p {
+        font-size: 1.2em;
+        max-width: 600px;
+    }
+
+    .butterfly {
+        position: absolute;
+        font-size: 22px;
+        animation: float 12s linear infinite;
+        opacity: 0.7;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(100vh) translateX(0); }
+        50% { transform: translateY(40vh) translateX(30px); }
+        100% { transform: translateY(-10vh) translateX(-30px); }
+    }
+
+    .nav {
+        position: fixed;
+        bottom: 20px;
+        width: 100%;
+        text-align: center;
+    }
+
+    button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 20px;
+        background: #ff7aa2;
+        color: white;
+        font-size: 16px;
+        margin: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #ff5c8a;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- Butterflies -->
+<div class="butterfly" style="left:10%">🦋</div>
+<div class="butterfly" style="left:25%">🦋</div>
+<div class="butterfly" style="left:50%">🦋</div>
+<div class="butterfly" style="left:75%">🦋</div>
+<div class="butterfly" style="left:90%">🦋</div>
+
+<!-- Slides -->
+<div class="slide active">
+    <h1>For You ❤️</h1>
+    <p>Someone who makes my world softer, calmer, and brighter just by being in it.</p>
+</div>
+
+<div class="slide">
+    <h1>I Appreciate You</h1>
+    <p>You bring warmth into my life in ways you don’t even realize.  
+    Your presence alone makes things feel lighter.</p>
+</div>
+
+<div class="slide">
+    <h1>Moments</h1>
+    <p>The laughs, the conversations, the little things…  
+    they all stay with me and mean more than words can explain.</p>
+</div>
+
+<div class="slide">
+    <h1>What I Love About You</h1>
+    <p>Your energy, your smile, your kindness…  
+    you’re simply different in the best way possible.</p>
+</div>
+
+<div class="slide">
+    <h1>Your Impact</h1>
+    <p>You make ordinary days feel special and calm.  
+    Having you around changes everything.</p>
+</div>
+
+<div class="slide">
+    <h1>Happy Valentine’s 🦋</h1>
+    <p>This isn’t a big question… just a reminder that you matter,  
+    and I’m really glad you’re part of my life.</p>
+</div>
+
+<div class="slide">
+    <h1>Made With Love ❤️</h1>
+    <p>Just for you.</p>
+</div>
+
+<!-- Navigation -->
+<div class="nav">
+    <button onclick="prevSlide()">Previous</button>
+    <button onclick="nextSlide()">Next</button>
+</div>
+
+<script>
+let slides = document.querySelectorAll('.slide');
+let index = 0;
+
+function showSlide(i){
+    slides.forEach(slide => slide.classList.remove('active'));
+    slides[i].classList.add('active');
+}
+
+function nextSlide(){
+    index = (index + 1) % slides.length;
+    showSlide(index);
+}
+
+function prevSlide(){
+    index = (index - 1 + slides.length) % slides.length;
+    showSlide(index);
+}
+
+// Auto slide every 6 seconds
+setInterval(nextSlide, 6000);
+</script>
+
+</body>
+</html>
